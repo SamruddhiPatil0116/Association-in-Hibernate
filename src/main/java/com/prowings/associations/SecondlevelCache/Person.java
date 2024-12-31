@@ -1,4 +1,7 @@
-package com.prowings.associations.firstlevelcache;
+package com.prowings.associations.SecondlevelCache;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,21 +14,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity(name = "FirstLevelPerson")
+@Entity(name = "SecondLevelPerson")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Person {
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 
+public class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	private int id;
 	@Column
 	private String name;
 	@Column
 	private String address;
-	
 
 }

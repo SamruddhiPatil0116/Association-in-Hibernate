@@ -23,6 +23,14 @@
 		<property name="hibernate.scan.packages">com.prowings.entities</property>
 
 		<property name="hibernate.scan.packages">com.prowings.entities</property>
+		
+		
+		 <!-- Second-level cache settings -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.jcache.internal.JCacheRegionFactory</property>
+        <property name="hibernate.javax.cache.provider">org.ehcache.jsr107.EhcacheCachingProvider</property>
+        <property name="hibernate.javax.cache.uri">ehcache.xml</property>
+		
 
 		<!-- <mapping class="com.prowings.entities.Employee" /> <mapping class="com.prowings.entities.SingleTable.Employee1" 
 			/> <mapping class="com.prowings.entities.SingleTable.Manager" /> <mapping 
@@ -44,7 +52,10 @@
 			<mapping
 			class="com.prowings.associations.OneToOneBidirectional.TestOneToOneBiDirectional" />  -->
 			
-			 <mapping class="com.prowings.associations.firstlevelcache.Person" />
+			   <mapping class="com.prowings.associations.firstlevelcache.Person" />
+			
+			 <mapping class="com.prowings.associations.SecondlevelCache.Person" />
+		    <!--   <mapping class="com.prowings.associations.SecondlevelCache.TestSecondLevelCache" />-->
 			
 			
 	</session-factory>
